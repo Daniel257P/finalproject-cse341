@@ -13,7 +13,8 @@ const productionOrderSchema = new mongoose.Schema(
     },
     startDate: { type: Date, required: true },
     completedDate: { type: Date, default: null },
-    notes: { type: String }
+    notes: { type: String },
+    customerOrderId: { type: mongoose.Schema.Types.ObjectId, ref: 'CustomerOrder', default: null }
   },
   { versionKey: false }
 );

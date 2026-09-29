@@ -17,6 +17,7 @@ router.get('/logout', (req, res, next) => {
 // Daniel Paulino
 router.use('/users', require('./users'));
 router.use('/production-orders', require('./productionOrders'));
+router.use('/customer-orders', require('./customerOrders'));
 
 
 // Martha y Emerald add your routes here:
