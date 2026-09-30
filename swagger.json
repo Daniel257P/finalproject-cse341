@@ -347,7 +347,7 @@
                 },
                 "notes": {
                   "type": "string",
-                  "example": "Deliver to dock 2"
+                  "example": "These parts are rework sample pieces"
                 }
               }
             }
@@ -519,6 +519,192 @@
           },
           "409": {
             "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/materials/": {
+      "get": {
+        "tags": [
+          "Materials"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Materials"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sku": {
+                  "type": "string",
+                  "example": "PAINT-WHT-20L"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "White Emulsion Paint"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "20 liter bucket of weather-resistant white emulsion paint"
+                },
+                "unitOfMeasure": {
+                  "type": "string",
+                  "example": "liters"
+                },
+                "quantityOnHand": {
+                  "type": "string",
+                  "example": "40"
+                },
+                "reorderPoint": {
+                  "type": "string",
+                  "example": "10"
+                },
+                "unitCost": {
+                  "type": "string",
+                  "example": "35.99"
+                },
+                "supplierId": {
+                  "type": "string",
+                  "example": "SUP-002"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "Warehouse-B-04"
+                },
+                "lastReceivedDate": {
+                  "type": "string",
+                  "example": "2026-09-25T00:00:00Z"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/materials/{id}": {
+      "get": {
+        "tags": [
+          "Material"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Material"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Production Orders"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
