@@ -1,7 +1,7 @@
 const Material= require('../models/Material');
 
 const buildMaterial = (body) => {
-  const order = {
+  const material = {
     sku: body.sku,
     name: body.name,
     description: body.description,
