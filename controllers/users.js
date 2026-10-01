@@ -13,6 +13,9 @@ const getAll = async (req, res) => {
 const getMe = async (req, res) => {
   //#swagger.tags=['Users']
   try {
+    if (!req.session.user) {
+      return res.status(401).json({ message: 'Not logged in.' });
+    }
     const user = await User.findById(req.session.user._id);
     if (!user) {
       return res.status(404).json({ message: 'User not found.' });

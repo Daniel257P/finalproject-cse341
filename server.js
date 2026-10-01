@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const User = require('./models/User');
 const mongodb = require('./data/database');
 const app = express();
@@ -12,9 +13,16 @@ const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
 
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use(
+  cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+  })
+);
 
 app.use(express.json());
+
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -24,6 +32,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 passport.use(
   new GitHubStrategy(
@@ -83,13 +93,13 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'An unexpected error occurred.', error: err.message });
 });
 
-const port = process.env.PORT || 3003;
+
 
 mongodb.initDb((err) => {
   if (err) {
     console.log(err);
   } else {
-    app.listen(port, () => {
+    app.listen(PORT, () => {
       console.log(`Database is listening and node is running on port http://127.0.0.1:${PORT}`);
     });
   }
