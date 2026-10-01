@@ -43,7 +43,7 @@ const getSingle = async (req, res) => {
 };
 
 const getLowStock = async (req, res) => {
-  //#swagger.tags=['Materials']
+  //#swagger.tags=['Low Stock Materials']
   //#swagger.description='Returns materials whose quantityOnHand is at or below their reorderLevel.'
   try {
     const materials = await Material.find({ $expr: { $lte: ['$quantityOnHand', '$reorderLevel'] } });
@@ -101,7 +101,7 @@ const updateMaterial = async (req, res) => {
 };
 
 const deleteMaterial = async (req, res) => {
-  //#swagger.tags=['Production Orders']
+  //#swagger.tags=['Material']
   try {
     const response = await Material.findByIdAndDelete(req.params.id);
     if (!response) {
