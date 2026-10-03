@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 const initDb = (callback) => {
   if (mongoose.connection.readyState === 1) {
-    console.log('Db is already initialized!');
+    console.log('Db is already initialized (connected) !');
     return callback(null, mongoose.connection);
   }
   mongoose
