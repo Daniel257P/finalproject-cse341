@@ -571,19 +571,19 @@
                 },
                 "unitOfMeasure": {
                   "type": "string",
-                  "example": "liters"
+                  "example": "l"
                 },
                 "quantityOnHand": {
-                  "type": "string",
-                  "example": "40"
+                  "type": "number",
+                  "example": 40
                 },
                 "reorderPoint": {
-                  "type": "string",
-                  "example": "10"
+                  "type": "number",
+                  "example": 10
                 },
                 "unitCost": {
-                  "type": "string",
-                  "example": "35.99"
+                  "type": "number",
+                  "example": 35.99
                 },
                 "supplierId": {
                   "type": "string",
@@ -682,19 +682,19 @@
                 },
                 "unitOfMeasure": {
                   "type": "string",
-                  "example": "liters"
+                  "example": "l"
                 },
                 "quantityOnHand": {
-                  "type": "string",
-                  "example": "40"
+                  "type": "number",
+                  "example": 40
                 },
                 "reorderPoint": {
-                  "type": "string",
-                  "example": "10"
+                  "type": "number",
+                  "example": 10
                 },
                 "unitCost": {
-                  "type": "string",
-                  "example": "35.99"
+                  "type": "number",
+                  "example": 35.99
                 },
                 "supplierId": {
                   "type": "string",
