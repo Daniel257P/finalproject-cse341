@@ -66,7 +66,6 @@ const createMaterial = async (req, res) => {
             quantityOnHand: 40,
             reorderPoint: 10,
             unitCost: 35.99,
-            supplierId: 'SUP-002',
             location: 'Warehouse-B-04',
             lastReceivedDate: '2026-09-25T00:00:00Z'
        }
@@ -95,7 +94,6 @@ const updateMaterial = async (req, res) => {
             quantityOnHand: 40,
             reorderPoint: 10,
             unitCost: 35.99,
-            supplierId: 'SUP-002',
             location: 'Warehouse-B-04',
             lastReceivedDate: '2026-09-25T00:00:00Z'
        }
