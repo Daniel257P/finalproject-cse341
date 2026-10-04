@@ -660,6 +660,56 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sku": {
+                  "type": "string",
+                  "example": "PAINT-WHT-20L"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "White Emulsion Paint"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "20 liter bucket of weather-resistant white emulsion paint"
+                },
+                "unitOfMeasure": {
+                  "type": "string",
+                  "example": "liters"
+                },
+                "quantityOnHand": {
+                  "type": "string",
+                  "example": "40"
+                },
+                "reorderPoint": {
+                  "type": "string",
+                  "example": "10"
+                },
+                "unitCost": {
+                  "type": "string",
+                  "example": "35.99"
+                },
+                "supplierId": {
+                  "type": "string",
+                  "example": "SUP-002"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "Warehouse-B-04"
+                },
+                "lastReceivedDate": {
+                  "type": "string",
+                  "example": "2026-09-25T00:00:00Z"
+                }
+              }
+            }
           }
         ],
         "responses": {
