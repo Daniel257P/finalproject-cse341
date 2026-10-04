@@ -2,16 +2,16 @@ const validator = require('../utils/validate');
 
 const saveMaterial = (req, res, next) => {
   const validationRule = {
-        sku: 'string | required',
-        name: 'string | required',
-        description: 'string',
-        unitOfMeasure: 'string',
-        quantityOnHand:'number',
-        reorderPoint: 'number',
-        unitCost: 'double',
-        supplierId: 'ObjectId',
-        location: 'string',
-        lastReceivedDate:'date'
+    sku: 'required|string',
+    name: 'required|string',
+    description: 'required|string',
+    unitOfMeasure: 'required|string|in:pcs,kg,g,lb,l,liters,ml,m,cm,ft',
+    quantityOnHand: 'numeric|min:0',
+    reorderPoint: 'numeric|min:0',
+    unitCost: 'required|numeric|min:0',
+    supplierId: 'regex:/^[0-9a-fA-F]{24}$/', // Validates 24-char MongoDB ObjectId hex string
+    location: 'string',
+    lastReceivedDate: 'date'
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
