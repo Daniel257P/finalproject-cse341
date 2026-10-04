@@ -84,6 +84,22 @@ const createMaterial = async (req, res) => {
 
 const updateMaterial = async (req, res) => {
   //#swagger.tags=['Material']
+      /* #swagger.parameters['body'] = {
+       in: 'body',
+       required: true,
+       schema: {
+            sku: 'PAINT-WHT-20L',
+            name: 'White Emulsion Paint',
+            description: '20 liter bucket of weather-resistant white emulsion paint',
+            unitOfMeasure:  'liters',
+            quantityOnHand: '40',
+            reorderPoint: '10',
+            unitCost: '35.99',
+            supplierId: 'SUP-002',
+            location: 'Warehouse-B-04',
+            lastReceivedDate: '2026-09-25T00:00:00Z'
+       }
+    } */
   try {
     const response = await Material.findByIdAndUpdate(req.params.id, buildMaterial(req.body), {
       runValidators: true
