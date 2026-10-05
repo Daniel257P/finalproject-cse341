@@ -176,11 +176,73 @@
           }
         }
       },
+      
       "post": {
         "tags": [
           "Production Orders"
         ],
-        "description": "",
+        "description": "Create a new production order",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "required": [
+                "orderNumber",
+                "productId",
+                "quantityPlanned",
+                "startDate"
+              ],
+              "properties": {
+                "orderNumber": {
+                  "type": "string",
+                  "example": "PO-1001"
+                },
+                "productId": {
+                  "type": "string",
+                  "pattern": "^[0-9a-fA-F]{24}$",
+                  "example": "507f1f77bcf86cd799439011"
+                },
+                "quantityPlanned": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "example": 100
+                },
+                "quantityProduced": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "example": 0
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "planned",
+                    "in-progress",
+                    "completed",
+                    "cancelled"
+                  ],
+                  "example": "planned"
+                },
+                "startDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2026-10-05"
+                },
+                "completedDate": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "2026-10-10"
+                },
+                "notes": {
+                  "type": "string",
+                  "example": "Initial production run"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -200,6 +262,7 @@
         }
       }
     },
+
     "/production-orders/{id}": {
       "get": {
         "tags": [
@@ -229,40 +292,94 @@
           }
         }
       },
-      "put": {
-        "tags": [
-          "Production Orders"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
+      
+"put": {
+  "tags": [
+    "Production Orders"
+  ],
+  "description": "Update a production order",
+  "parameters": [
+    {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "name": "body",
+      "in": "body",
+      "required": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "orderNumber": {
+            "type": "string",
+            "example": "PO-1001"
           },
-          "400": {
-            "description": "Bad Request"
+          "productId": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$",
+            "example": "507f1f77bcf86cd799439011"
           },
-          "401": {
-            "description": "Unauthorized"
+          "quantityPlanned": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 150
           },
-          "404": {
-            "description": "Not Found"
+          "quantityProduced": {
+            "type": "integer",
+            "minimum": 0,
+            "example": 50
           },
-          "409": {
-            "description": "Conflict"
+          "status": {
+            "type": "string",
+            "enum": [
+              "planned",
+              "in-progress",
+              "completed",
+              "cancelled"
+            ],
+            "example": "in-progress"
           },
-          "500": {
-            "description": "Internal Server Error"
+          "startDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-10-05"
+          },
+          "completedDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-10-10"
+          },
+          "notes": {
+            "type": "string",
+            "example": "Production updated"
           }
         }
-      },
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "OK"
+    },
+    "400": {
+      "description": "Bad Request"
+    },
+    "401": {
+      "description": "Unauthorized"
+    },
+    "404": {
+      "description": "Not Found"
+    },
+    "409": {
+      "description": "Conflict"
+    },
+    "500": {
+      "description": "Internal Server Error"
+    }
+  }
+ },
       "delete": {
         "tags": [
           "Production Orders"
@@ -402,7 +519,7 @@
             "description": "Internal Server Error"
           }
         }
-      },
+           },
       "put": {
         "tags": [
           "Customer Orders"
