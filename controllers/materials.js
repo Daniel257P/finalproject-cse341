@@ -30,7 +30,7 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
-  //#swagger.tags=['Material']
+  //#swagger.tags=['Materials']
   try {
     const material = await Material.findById(req.params.id);
     if (!material) {
@@ -43,10 +43,10 @@ const getSingle = async (req, res) => {
 };
 
 const getLowStock = async (req, res) => {
-  //#swagger.tags=['Low Stock Materials']
-  //#swagger.description='Returns materials whose quantityOnHand is at or below their reorderLevel.'
+  //#swagger.tags=['Materials']
+  //#swagger.description='Returns materials whose quantityOnHand is at or below their reorderPoint.'
   try {
-    const materials = await Material.find({ $expr: { $lte: ['$quantityOnHand', '$reorderLevel'] } });
+    const materials = await Material.find({ $expr: { $lte: ['$quantityOnHand', '$reorderPoint'] } });
     res.status(200).json(materials);
   } catch (err) {
     res.status(500).json({ message: 'Some error occurred while retrieving low-stock materials.', error: err.message });
@@ -75,14 +75,14 @@ const createMaterial = async (req, res) => {
     res.status(201).json({ message: 'Material created successfully', data: response });
   } catch (err) {
     if (err.code === 11000) {
-      return res.status(409).json({ message: 'A Material with that Id already exists.' });
+      return res.status(409).json({ message: 'A Material with that sku already exists.' });
     }
     res.status(500).json({ message: 'Some error occurred while creating the Material.', error: err.message });
   }
 };
 
 const updateMaterial = async (req, res) => {
-  //#swagger.tags=['Material']
+  //#swagger.tags=['Materials']
       /* #swagger.parameters['body'] = {
        in: 'body',
        required: true,
@@ -108,20 +108,20 @@ const updateMaterial = async (req, res) => {
     res.status(200).json({ message: 'Material updated successfully' });
   } catch (err) {
     if (err.code === 11000) {
-      return res.status(409).json({ message: 'A Material with that Id already exists.' });
+      return res.status(409).json({ message: 'A Material with that sku already exists.' });
     }
     res.status(500).json({ message: 'Some error occurred while updating the Material.', error: err.message });
   }
 };
 
 const deleteMaterial = async (req, res) => {
-  //#swagger.tags=['Material']
+  //#swagger.tags=['Materials']
   try {
     const response = await Material.findByIdAndDelete(req.params.id);
     if (!response) {
       return res.status(404).json({ message: 'Material not found.' });
     }
-    res.status(204).json({ message: 'Material deleted successfully' });
+    res.sendStatus(204);
   } catch (err) {
     res.status(500).json({ message: 'Some error occurred while deleting the Material.', error: err.message });
   }

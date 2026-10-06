@@ -76,7 +76,7 @@ const deleteProductionOrder = async (req, res) => {
     if (!response) {
       return res.status(404).json({ message: 'Production order not found.' });
     }
-    res.status(200).json({ message: 'Production order deleted successfully' });
+    res.sendStatus(204);
   } catch (err) {
     res.status(500).json({ message: 'Some error occurred while deleting the production order.', error: err.message });
   }
