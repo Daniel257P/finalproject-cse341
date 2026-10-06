@@ -7,7 +7,7 @@ const materialSchema = new mongoose.Schema(
     description: { type: String, required: true},
     unitOfMeasure: {
       type: String,
-      enum: ['pcs', 'kg', 'g', 'lb', 'l', 'ml', 'm', 'cm', 'ft'],
+      enum: ['pcs', 'kg', 'g', 'lb', 'l', 'liters', 'ml', 'm', 'cm', 'ft', 'bags'],
       required: true
     },
     quantityOnHand:{type:Number, default:0, min: 0},

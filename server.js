@@ -4,7 +4,7 @@ const cors = require('cors');
 const User = require('./models/User');
 const mongodb = require('./data/database');
 const app = express();
-const PORT = process.env.PORT||3003;
+const PORT = process.env.PORT||3000;
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');

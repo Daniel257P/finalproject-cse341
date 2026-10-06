@@ -195,7 +195,7 @@ const deleteCustomerOrder = async (req, res) => {
       );
     }
 
-    res.status(204).json({ message: 'Customer order deleted successfully' });
+    res.sendStatus(204);
   } catch (err) {
     res.status(500).json({ message: 'Some error occurred while deleting the customer order.', error: err.message });
   }

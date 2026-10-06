@@ -5,7 +5,7 @@ const saveMaterial = (req, res, next) => {
     sku: 'required|string',
     name: 'required|string',
     description: 'required|string',
-    unitOfMeasure: 'required|string|in:pcs,kg,g,lb,l,liters,ml,m,cm,ft',
+    unitOfMeasure: 'required|string|in:pcs,kg,g,lb,l,liters,ml,m,cm,ft,bags',
     quantityOnHand: 'numeric|min:0',
     reorderPoint: 'numeric|min:0',
     unitCost: 'required|numeric|min:0',
