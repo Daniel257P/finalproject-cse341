@@ -5,6 +5,7 @@
     "description": "Inventory API for a small manufacturing plant",
     "version": "1.0.0"
   },
+
   "host": "finalproject-cse341-q4uy.onrender.com",
   "basePath": "/",
   "schemes": [

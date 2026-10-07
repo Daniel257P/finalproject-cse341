@@ -2,17 +2,19 @@
   "name": "finalproject-cse341",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watch --coverage",
     "start": "node server.js",
     "dev": "nodemon server.js",
     "swagger": "node swagger.js"
-    
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Daniel257P/finalproject-cse341.git"
+  },
+  "jest": {
+    "preset": "@shelf/jest-mongodb"
   },
   "keywords": [],
   "author": "Team-01",
@@ -34,6 +36,7 @@
     "validatorjs": "^3.22.1"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^6.0.2",
     "jest": "^30.5.2",
     "nodemon": "^3.1.14",
     "supertest": "^7.3.0",

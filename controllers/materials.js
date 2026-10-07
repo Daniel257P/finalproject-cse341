@@ -97,7 +97,7 @@ const updateMaterial = async (req, res) => {
             location: 'Warehouse-B-04',
             lastReceivedDate: '2026-09-25T00:00:00Z'
        }
-    } */
+    } */  
   try {
     const response = await Material.findByIdAndUpdate(req.params.id, buildMaterial(req.body), {
       runValidators: true
