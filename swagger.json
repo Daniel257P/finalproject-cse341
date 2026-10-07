@@ -5,10 +5,10 @@
     "description": "Inventory API for a small manufacturing plant",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "finalproject-cse341-q4uy.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/users/me": {
@@ -182,6 +182,50 @@
           "Production Orders"
         ],
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "orderNumber": {
+                  "type": "string",
+                  "example": "PO-1001"
+                },
+                "productId": {
+                  "type": "string",
+                  "example": "507f1f77bcf86cd799439011"
+                },
+                "quantityPlanned": {
+                  "type": "number",
+                  "example": 100
+                },
+                "quantityProduced": {
+                  "type": "number",
+                  "example": 0
+                },
+                "status": {
+                  "type": "string",
+                  "example": "planned"
+                },
+                "startDate": {
+                  "type": "string",
+                  "example": "2026-10-05"
+                },
+                "completedDate": {
+                  "type": "string",
+                  "example": "2026-10-10"
+                },
+                "notes": {
+                  "type": "string",
+                  "example": "Initial production run"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -241,6 +285,48 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "orderNumber": {
+                  "type": "string",
+                  "example": "PO-1001"
+                },
+                "productId": {
+                  "type": "string",
+                  "example": "507f1f77bcf86cd799439011"
+                },
+                "quantityPlanned": {
+                  "type": "number",
+                  "example": 150
+                },
+                "quantityProduced": {
+                  "type": "number",
+                  "example": 50
+                },
+                "status": {
+                  "type": "string",
+                  "example": "in-progress"
+                },
+                "startDate": {
+                  "type": "string",
+                  "example": "2026-10-05"
+                },
+                "completedDate": {
+                  "type": "string",
+                  "example": "2026-10-10"
+                },
+                "notes": {
+                  "type": "string",
+                  "example": "Production updated"
+                }
+              }
+            }
           }
         ],
         "responses": {

@@ -1,7 +1,10 @@
 const swaggerAutogen = require('swagger-autogen')();
 
-const host = process.env.RENDER_EXTERNAL_HOSTNAME || 'localhost:3000';
-const schemes = process.env.RENDER_EXTERNAL_HOSTNAME ? ['https'] : ['http'];
+const host =
+  process.env.RENDER_EXTERNAL_HOSTNAME ||
+  'finalproject-cse341-q4uy.onrender.com';
+
+const schemes = ['https'];
 
 const doc = {
   info: {
