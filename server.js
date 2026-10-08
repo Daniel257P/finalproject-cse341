@@ -94,13 +94,16 @@ app.use((err, req, res, next) => {
 });
 
 
+if (require.main === module) {
+  mongodb.initDb((err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      app.listen(PORT, () => {
+        console.log(`Database is listening and node is running on port http://127.0.0.1:${PORT}`);
+      });
+    }
+  });
+}
 
-mongodb.initDb((err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    app.listen(PORT, () => {
-      console.log(`Database is listening and node is running on port http://127.0.0.1:${PORT}`);
-    });
-  }
-});
+module.exports = app;
