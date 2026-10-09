@@ -107,8 +107,7 @@ const updateProduct = async (req, res) => {
 };
 
 const deleteProduct = async (req, res) => {
-    //#swagger.tags=['Products']
-    try {
+ try {
         const product = await Product.findByIdAndDelete(req.params.id);
 
         if (!product) {
