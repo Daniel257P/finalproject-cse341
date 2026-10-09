@@ -22,7 +22,7 @@ router.use('/customer-orders', require('./customerOrders'));
 
 // Martha y Emerald add your routes here:
  router.use('/materials', require('./materials'));
-// router.use('/suppliers', require('./suppliers'));
-// router.use('/products', require('./products'));
+ router.use('/suppliers', require('./suppliers'));
+ router.use('/products', require('./products'));
 
 module.exports = router;
