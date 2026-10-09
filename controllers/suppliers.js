@@ -52,6 +52,19 @@ const getSingle = async (req, res) => {
 
 const createSupplier = async (req, res) => {
     //#swagger.tags=['Suppliers']
+    /* #swagger.parameters['body'] = {
+         in: 'body',
+         required: true,
+         schema: {
+           supplierCode: 'SUP-001',
+           name: 'Acme Lumber',
+           contactName: 'Ann Smith',
+           email: 'ann@acmelumber.com',
+           phone: '555-0100',
+           address: '100 Main St, Springfield',
+           isActive: true
+         }
+    } */
     try {
         const supplier = await Supplier.create(buildSupplier(req.body));
 
@@ -75,6 +88,19 @@ const createSupplier = async (req, res) => {
 
 const updateSupplier = async (req, res) => {
     //#swagger.tags=['Suppliers']
+    /* #swagger.parameters['body'] = {
+         in: 'body',
+         required: true,
+         schema: {
+           supplierCode: 'SUP-001',
+           name: 'Acme Lumber',
+           contactName: 'Ann Smith',
+           email: 'ann@acmelumber.com',
+           phone: '555-0100',
+           address: '100 Main St, Springfield',
+           isActive: true
+         }
+    } */
     try {
         const supplier = await Supplier.findByIdAndUpdate(
             req.params.id,

@@ -879,6 +879,46 @@
           "Suppliers"
         ],
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "supplierCode": {
+                  "type": "string",
+                  "example": "SUP-001"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Acme Lumber"
+                },
+                "contactName": {
+                  "type": "string",
+                  "example": "Ann Smith"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "ann@acmelumber.com"
+                },
+                "phone": {
+                  "type": "string",
+                  "example": "555-0100"
+                },
+                "address": {
+                  "type": "string",
+                  "example": "100 Main St, Springfield"
+                },
+                "isActive": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -938,6 +978,44 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "supplierCode": {
+                  "type": "string",
+                  "example": "SUP-001"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Acme Lumber"
+                },
+                "contactName": {
+                  "type": "string",
+                  "example": "Ann Smith"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "ann@acmelumber.com"
+                },
+                "phone": {
+                  "type": "string",
+                  "example": "555-0100"
+                },
+                "address": {
+                  "type": "string",
+                  "example": "100 Main St, Springfield"
+                },
+                "isActive": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -1013,6 +1091,54 @@
           "Products"
         ],
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sku": {
+                  "type": "string",
+                  "example": "CHAIR-OAK-001"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Oak Chair"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Solid oak dining chair"
+                },
+                "unitOfMeasure": {
+                  "type": "string",
+                  "example": "pcs"
+                },
+                "quantityOnHand": {
+                  "type": "number",
+                  "example": 25
+                },
+                "reorderPoint": {
+                  "type": "number",
+                  "example": 5
+                },
+                "unitPrice": {
+                  "type": "number",
+                  "example": 89.99
+                },
+                "location": {
+                  "type": "string",
+                  "example": "Warehouse-C-02"
+                },
+                "isActive": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -1072,6 +1198,52 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sku": {
+                  "type": "string",
+                  "example": "CHAIR-OAK-001"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Oak Chair"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Solid oak dining chair"
+                },
+                "unitOfMeasure": {
+                  "type": "string",
+                  "example": "pcs"
+                },
+                "quantityOnHand": {
+                  "type": "number",
+                  "example": 25
+                },
+                "reorderPoint": {
+                  "type": "number",
+                  "example": 5
+                },
+                "unitPrice": {
+                  "type": "number",
+                  "example": 89.99
+                },
+                "location": {
+                  "type": "string",
+                  "example": "Warehouse-C-02"
+                },
+                "isActive": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            }
           }
         ],
         "responses": {
