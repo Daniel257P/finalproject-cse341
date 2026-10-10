@@ -64,7 +64,7 @@ const createCustomerOrder = async (req, res) => {
   let order;
 
   try {
-    // 1. El producto debe existir
+    // 1. Product must exist
     const product = await products().findOne({ _id: new mongoose.Types.ObjectId(productId) });
     if (!product) {
       return res.status(404).json({ message: 'Product not found.' });
