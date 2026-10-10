@@ -6,9 +6,9 @@ const saveProduct = (req, res, next) => {
         sku: 'string | required',
         name: 'string | required',
         description: 'string | required',
-        unitOfMeasure: 'string | required',
-        quantityOnHand: 'number',
-        reorderPoint: 'number',
+        unitOfMeasure: 'required|string|in:pcs,kg,g,lb,l,liters,ml,m,cm,ft,bags',
+        quantityOnHand: 'numeric|min:0',
+        reorderPoint: 'numeric|min:0',
         unitPrice: 'double | required',
         location: 'string',
         isActive: 'boolean'
