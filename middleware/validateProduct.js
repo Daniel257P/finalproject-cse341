@@ -7,8 +7,8 @@ const saveProduct = (req, res, next) => {
         name: 'string|required',
         description: 'string|required',
         unitOfMeasure: 'string|required',
-        quantityOnHand: 'number',
-        reorderPoint: 'number',
+        quantityOnHand: 'integer',
+        reorderPoint: 'integer',
         unitPrice: 'numeric|required',
         location: 'string',
         isActive: 'boolean'
