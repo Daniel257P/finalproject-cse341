@@ -6,7 +6,7 @@ const saveSupplier = (req, res, next) => {
         supplierCode: 'string|required',
         name: 'string|required',
         contactName: 'string|required',
-        email: 'string|required',
+        email: 'required|email',
         phone: 'string|required',
         address: 'string|required',
         isActive: 'boolean'
