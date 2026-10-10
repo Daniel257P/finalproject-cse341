@@ -29,4 +29,10 @@ CSE 341 Final Project — a RESTful inventory API for a small manufacturing plan
 * Swagger documentation: Updated swagger.json to document the Products and Suppliers endpoints, including request-body examples and relevant response status codes. The documentation covers the CRUD operations for both collections.
 * Products and Suppliers Swagger documentation: Updated swagger.json to document all five CRUD endpoints for both the Products and Suppliers collections, including request parameters and expected response status codes.
 * Request-body documentation: Added Swagger annotations to the Products and Suppliers controllers to provide example request bodies for creating and updating records.
-* API documentation improvements: Documented the product and supplier fields used in API requests, making it easier for developers to understand and test the endpoints through Swagger UI.
+* API documentation improvements: Documented the product and supplier fields used in API requests, making it easier to understand and test the endpoints through Swagger UI.
+*  Automated Testing: 
+- Created automated tests for the Products and Suppliers collection.
+- Created tests for product and supplier request validation to help verify that invalid input is handled appropriately.
+* Request Validation Middleware
+- Updated `middleware/product.js` to validate product data, including required fields, numeric values, non-negative quantities and prices, and supported units of measurement.
+- Updated `middleware/supplier.js` to validate required supplier information and email addresses.
