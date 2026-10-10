@@ -884,7 +884,6 @@
             "name": "body",
             "in": "body",
             "required": true,
-            "description": "Supplier details",
             "schema": {
               "type": "object",
               "properties": {
@@ -894,23 +893,23 @@
                 },
                 "name": {
                   "type": "string",
-                  "example": "ABC Industrial Supplies"
+                  "example": "Acme Lumber"
                 },
                 "contactName": {
                   "type": "string",
-                  "example": "John Doe"
+                  "example": "Ann Smith"
                 },
                 "email": {
                   "type": "string",
-                  "example": "john@example.com"
+                  "example": "ann@acmelumber.com"
                 },
                 "phone": {
                   "type": "string",
-                  "example": "+2348012345678"
+                  "example": "555-0100"
                 },
                 "address": {
                   "type": "string",
-                  "example": "Lagos, Nigeria"
+                  "example": "100 Main St, Springfield"
                 },
                 "isActive": {
                   "type": "boolean",
@@ -984,7 +983,6 @@
             "name": "body",
             "in": "body",
             "required": true,
-            "description": "Updated supplier details",
             "schema": {
               "type": "object",
               "properties": {
@@ -994,23 +992,23 @@
                 },
                 "name": {
                   "type": "string",
-                  "example": "ABC Industrial Supplies"
+                  "example": "Acme Lumber"
                 },
                 "contactName": {
                   "type": "string",
-                  "example": "John Doe"
+                  "example": "Ann Smith"
                 },
                 "email": {
                   "type": "string",
-                  "example": "john@example.com"
+                  "example": "ann@acmelumber.com"
                 },
                 "phone": {
                   "type": "string",
-                  "example": "+2348012345678"
+                  "example": "555-0100"
                 },
                 "address": {
                   "type": "string",
-                  "example": "Lagos, Nigeria"
+                  "example": "100 Main St, Springfield"
                 },
                 "isActive": {
                   "type": "boolean",
@@ -1098,21 +1096,20 @@
             "name": "body",
             "in": "body",
             "required": true,
-            "description": "Product details",
             "schema": {
               "type": "object",
               "properties": {
                 "sku": {
                   "type": "string",
-                  "example": "PROD-001"
+                  "example": "CHAIR-OAK-001"
                 },
                 "name": {
                   "type": "string",
-                  "example": "Steel Sheet"
+                  "example": "Oak Chair"
                 },
                 "description": {
                   "type": "string",
-                  "example": "Sheet metal for manufacturing"
+                  "example": "Solid oak dining chair"
                 },
                 "unitOfMeasure": {
                   "type": "string",
@@ -1120,19 +1117,23 @@
                 },
                 "quantityOnHand": {
                   "type": "number",
-                  "example": 100
+                  "example": 25
                 },
                 "reorderPoint": {
                   "type": "number",
-                  "example": 10
+                  "example": 5
                 },
                 "unitPrice": {
                   "type": "number",
-                  "example": 2500
+                  "example": 89.99
                 },
                 "location": {
                   "type": "string",
-                  "example": "Warehouse A"
+                  "example": "Warehouse-C-02"
+                },
+                "isActive": {
+                  "type": "boolean",
+                  "example": true
                 }
               }
             }
@@ -1202,21 +1203,20 @@
             "name": "body",
             "in": "body",
             "required": true,
-            "description": "Updated product details",
             "schema": {
               "type": "object",
               "properties": {
                 "sku": {
                   "type": "string",
-                  "example": "PROD-001"
+                  "example": "CHAIR-OAK-001"
                 },
                 "name": {
                   "type": "string",
-                  "example": "Steel Sheet"
+                  "example": "Oak Chair"
                 },
                 "description": {
                   "type": "string",
-                  "example": "Sheet metal for manufacturing"
+                  "example": "Solid oak dining chair"
                 },
                 "unitOfMeasure": {
                   "type": "string",
@@ -1224,19 +1224,23 @@
                 },
                 "quantityOnHand": {
                   "type": "number",
-                  "example": 100
+                  "example": 25
                 },
                 "reorderPoint": {
                   "type": "number",
-                  "example": 10
+                  "example": 5
                 },
                 "unitPrice": {
                   "type": "number",
-                  "example": 2500
+                  "example": 89.99
                 },
                 "location": {
                   "type": "string",
-                  "example": "Warehouse A"
+                  "example": "Warehouse-C-02"
+                },
+                "isActive": {
+                  "type": "boolean",
+                  "example": true
                 }
               }
             }

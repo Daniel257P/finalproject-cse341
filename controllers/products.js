@@ -54,6 +54,21 @@ const getSingle = async (req, res) => {
 
 const createProduct = async (req, res) => {
     //#swagger.tags=['Products']
+    /* #swagger.parameters['body'] = {
+         in: 'body',
+         required: true,
+         schema: {
+           sku: 'CHAIR-OAK-001',
+           name: 'Oak Chair',
+           description: 'Solid oak dining chair',
+           unitOfMeasure: 'pcs',
+           quantityOnHand: 25,
+           reorderPoint: 5,
+           unitPrice: 89.99,
+           location: 'Warehouse-C-02',
+           isActive: true
+         }
+    } */
     try {
         const product = await Product.create(buildProduct(req.body));
 
@@ -77,6 +92,21 @@ const createProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
     //#swagger.tags=['Products']
+    /* #swagger.parameters['body'] = {
+         in: 'body',
+         required: true,
+         schema: {
+           sku: 'CHAIR-OAK-001',
+           name: 'Oak Chair',
+           description: 'Solid oak dining chair',
+           unitOfMeasure: 'pcs',
+           quantityOnHand: 25,
+           reorderPoint: 5,
+           unitPrice: 89.99,
+           location: 'Warehouse-C-02',
+           isActive: true
+         }
+    } */
     try {
         const product = await Product.findByIdAndUpdate(
             req.params.id,

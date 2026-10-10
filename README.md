@@ -24,3 +24,9 @@ CSE 341 Final Project — a RESTful inventory API for a small manufacturing plan
 * Added request-body documentation for the POST and PUT Production Orders endpoints.
 * Regenerated and reviewed (swagger.json)  and tested the API through the deployed Render Swagger UI.
 * Resolved Git rebase conflicts and committed and pushed the completed Swagger fixes to the team GitHub repository.
+
+### Emerald Uwaoma Awoke - Individual Contribution
+* Swagger documentation: Updated swagger.json to document the Products and Suppliers endpoints, including request-body examples and relevant response status codes. The documentation covers the CRUD operations for both collections.
+* Products and Suppliers Swagger documentation: Updated swagger.json to document all five CRUD endpoints for both the Products and Suppliers collections, including request parameters and expected response status codes.
+* Request-body documentation: Added Swagger annotations to the Products and Suppliers controllers to provide example request bodies for creating and updating records.
+* API documentation improvements: Documented the product and supplier fields used in API requests, making it easier for developers to understand and test the endpoints through Swagger UI.
