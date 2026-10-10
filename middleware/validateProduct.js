@@ -3,13 +3,13 @@ const validator = require('../utils/validate');
 
 const saveProduct = (req, res, next) => {
     const validationRule = {
-        sku: 'string | required',
-        name: 'string | required',
-        description: 'string | required',
-        unitOfMeasure: 'string | required',
+        sku: 'string|required',
+        name: 'string|required',
+        description: 'string|required',
+        unitOfMeasure: 'string|required',
         quantityOnHand: 'number',
         reorderPoint: 'number',
-        unitPrice: 'double | required',
+        unitPrice: 'numeric|required',
         location: 'string',
         isActive: 'boolean'
     };

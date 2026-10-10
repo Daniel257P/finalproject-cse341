@@ -63,10 +63,12 @@ router.put(
     }
 );
 
+
 router.delete(
     '/:id',
     isAuthenticated,
     validateId,
+    /* #swagger.tags = ['Products'] */
     productsController.deleteProduct
 );
 

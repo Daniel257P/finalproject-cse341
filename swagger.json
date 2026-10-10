@@ -1264,6 +1264,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Products"
+        ],
         "description": "",
         "parameters": [
           {
