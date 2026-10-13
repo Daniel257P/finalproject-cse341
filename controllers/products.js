@@ -89,6 +89,53 @@ const createProduct = async (req, res) => {
         });
     }
 };
+const getLowStock = async (req, res) => {
+    //#swagger.tags=['Low Stock']
+    //#swagger.description='Returns products whose quantityOnHand is at or below their reorderPoint. These are the products that may not cover new customer orders.'
+    try {
+        const products = await Product.find({
+            $expr: { $lte: ['$quantityOnHand', '$reorderPoint'] }
+        });
+        res.status(200).json(products);
+    } catch (err) {
+        res.status(500).json({
+            message: 'Error retrieving low-stock products.',
+            error: err.message
+        });
+    }
+};
+
+const restockProduct = async (req, res) => {
+    //#swagger.tags=['Low Stock']
+    //#swagger.description='Adds finished units to a product (quantityOnHand += quantity) so new customer orders can be served from stock.'
+    /* #swagger.parameters['body'] = {
+         in: 'body',
+         required: true,
+         schema: { quantity: 50 }
+    } */
+    try {
+        const product = await Product.findByIdAndUpdate(
+            req.params.id,
+            { $inc: { quantityOnHand: Number(req.body.quantity) } },
+            { new: true, runValidators: true }
+        );
+
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found.' });
+        }
+
+        res.status(200).json({
+            message: 'Product restocked successfully.',
+            data: product
+        });
+    } catch (err) {
+        res.status(500).json({
+            message: 'Error restocking product.',
+            error: err.message
+        });
+    }
+};
+
 
 const updateProduct = async (req, res) => {
     //#swagger.tags=['Products']
@@ -156,7 +203,9 @@ const deleteProduct = async (req, res) => {
 module.exports = {
     getAll,
     getSingle,
+    getLowStock,
     createProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    restockProduct
 };

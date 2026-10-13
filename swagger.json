@@ -705,7 +705,7 @@
     "/materials/low-stock": {
       "get": {
         "tags": [
-          "Materials"
+          "Low Stock"
         ],
         "description": "Returns materials whose quantityOnHand is at or below their reorderPoint.",
         "responses": {
@@ -859,6 +859,53 @@
         }
       }
     },
+    "/materials/{id}/restock": {
+      "put": {
+        "tags": [
+          "Low Stock"
+        ],
+        "description": "Adds received units to a material (quantityOnHand += quantity) and sets lastReceivedDate to now.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "quantity": {
+                  "type": "number",
+                  "example": 50
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/suppliers/": {
       "get": {
         "tags": [
@@ -893,30 +940,31 @@
                 },
                 "name": {
                   "type": "string",
-                  "example": "Acme Lumber"
+                  "example": "ABC Industrial Supplies"
                 },
                 "contactName": {
                   "type": "string",
-                  "example": "Ann Smith"
+                  "example": "John Doe"
                 },
                 "email": {
                   "type": "string",
-                  "example": "ann@acmelumber.com"
+                  "example": "john@example.com"
                 },
                 "phone": {
                   "type": "string",
-                  "example": "555-0100"
+                  "example": "+2348012345678"
                 },
                 "address": {
                   "type": "string",
-                  "example": "100 Main St, Springfield"
+                  "example": "Lagos, Nigeria"
                 },
                 "isActive": {
                   "type": "boolean",
                   "example": true
                 }
               }
-            }
+            },
+            "description": "Supplier details"
           }
         ],
         "responses": {
@@ -992,30 +1040,31 @@
                 },
                 "name": {
                   "type": "string",
-                  "example": "Acme Lumber"
+                  "example": "ABC Industrial Supplies"
                 },
                 "contactName": {
                   "type": "string",
-                  "example": "Ann Smith"
+                  "example": "John Doe"
                 },
                 "email": {
                   "type": "string",
-                  "example": "ann@acmelumber.com"
+                  "example": "john@example.com"
                 },
                 "phone": {
                   "type": "string",
-                  "example": "555-0100"
+                  "example": "+2348012345678"
                 },
                 "address": {
                   "type": "string",
-                  "example": "100 Main St, Springfield"
+                  "example": "Lagos, Nigeria"
                 },
                 "isActive": {
                   "type": "boolean",
                   "example": true
                 }
               }
-            }
+            },
+            "description": "Updated supplier details"
           }
         ],
         "responses": {
@@ -1101,15 +1150,15 @@
               "properties": {
                 "sku": {
                   "type": "string",
-                  "example": "CHAIR-OAK-001"
+                  "example": "PROD-001"
                 },
                 "name": {
                   "type": "string",
-                  "example": "Oak Chair"
+                  "example": "Steel Sheet"
                 },
                 "description": {
                   "type": "string",
-                  "example": "Solid oak dining chair"
+                  "example": "Sheet metal for manufacturing"
                 },
                 "unitOfMeasure": {
                   "type": "string",
@@ -1117,26 +1166,23 @@
                 },
                 "quantityOnHand": {
                   "type": "number",
-                  "example": 25
+                  "example": 100
                 },
                 "reorderPoint": {
                   "type": "number",
-                  "example": 5
+                  "example": 10
                 },
                 "unitPrice": {
                   "type": "number",
-                  "example": 89.99
+                  "example": 2500
                 },
                 "location": {
                   "type": "string",
-                  "example": "Warehouse-C-02"
-                },
-                "isActive": {
-                  "type": "boolean",
-                  "example": true
+                  "example": "Warehouse A"
                 }
               }
-            }
+            },
+            "description": "Product details"
           }
         ],
         "responses": {
@@ -1151,6 +1197,22 @@
           },
           "409": {
             "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/products/low-stock": {
+      "get": {
+        "tags": [
+          "Low Stock"
+        ],
+        "description": "Returns products whose quantityOnHand is at or below their reorderPoint. These are the products that may not cover new customer orders.",
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "500": {
             "description": "Internal Server Error"
@@ -1208,15 +1270,15 @@
               "properties": {
                 "sku": {
                   "type": "string",
-                  "example": "CHAIR-OAK-001"
+                  "example": "PROD-001"
                 },
                 "name": {
                   "type": "string",
-                  "example": "Oak Chair"
+                  "example": "Steel Sheet"
                 },
                 "description": {
                   "type": "string",
-                  "example": "Solid oak dining chair"
+                  "example": "Sheet metal for manufacturing"
                 },
                 "unitOfMeasure": {
                   "type": "string",
@@ -1224,26 +1286,23 @@
                 },
                 "quantityOnHand": {
                   "type": "number",
-                  "example": 25
+                  "example": 100
                 },
                 "reorderPoint": {
                   "type": "number",
-                  "example": 5
+                  "example": 10
                 },
                 "unitPrice": {
                   "type": "number",
-                  "example": 89.99
+                  "example": 2500
                 },
                 "location": {
                   "type": "string",
-                  "example": "Warehouse-C-02"
-                },
-                "isActive": {
-                  "type": "boolean",
-                  "example": true
+                  "example": "Warehouse A"
                 }
               }
-            }
+            },
+            "description": "Updated product details"
           }
         ],
         "responses": {

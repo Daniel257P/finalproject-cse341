@@ -6,8 +6,11 @@ const productsController = require('../controllers/products');
 const validation = require('../middleware/validateProduct');
 const validateId = require('../middleware/validateId');
 const { isAuthenticated } = require('../middleware/authenticate');
+const restockValidation = require('../middleware/validateRestock');
+
 
 router.get('/', productsController.getAll);
+router.get('/low-stock', productsController.getLowStock);
 router.get('/:id', validateId, productsController.getSingle);
 
 

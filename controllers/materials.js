@@ -43,13 +43,35 @@ const getSingle = async (req, res) => {
 };
 
 const getLowStock = async (req, res) => {
-  //#swagger.tags=['Materials']
+  //#swagger.tags=['Low Stock']
   //#swagger.description='Returns materials whose quantityOnHand is at or below their reorderPoint.'
   try {
     const materials = await Material.find({ $expr: { $lte: ['$quantityOnHand', '$reorderPoint'] } });
     res.status(200).json(materials);
   } catch (err) {
     res.status(500).json({ message: 'Some error occurred while retrieving low-stock materials.', error: err.message });
+  }
+};
+const restockMaterial = async (req, res) => {
+  //#swagger.tags=['Low Stock']
+  //#swagger.description='Adds received units to a material (quantityOnHand += quantity) and sets lastReceivedDate to now.'
+  /* #swagger.parameters['body'] = {
+       in: 'body',
+       required: true,
+       schema: { quantity: 50 }
+  } */
+  try {
+    const material = await Material.findByIdAndUpdate(
+      req.params.id,
+      { $inc: { quantityOnHand: Number(req.body.quantity) }, lastReceivedDate: new Date() },
+      { new: true, runValidators: true }
+    );
+    if (!material) {
+      return res.status(404).json({ message: 'Material not found.' });
+    }
+    res.status(200).json({ message: 'Material restocked successfully', data: material });
+  } catch (err) {
+    res.status(500).json({ message: 'Some error occurred while restocking the Material.', error: err.message });
   }
 };
 
@@ -132,6 +154,7 @@ module.exports = {
   getSingle, 
   getLowStock,
   createMaterial,
+  restockMaterial,
   updateMaterial,
   deleteMaterial
 };
